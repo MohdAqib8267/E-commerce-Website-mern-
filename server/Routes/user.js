@@ -51,9 +51,9 @@ router.get('/find/:id',verifyTokenAndAdmin,async(req,res)=>{
 //GET ALL USERS
 router.get('/',verifyTokenAndAdmin, async(req,res)=>{
   const query = req.query.new;
-  
+ 
   try {
-    const users = query? await UserModel.find().sort({_id:-1}).limit(query) : await UserModel.find()
+    const users = query? await UserModel.find().sort({_id:-1}).limit(5) : await UserModel.find()
     if(!users){
       res.status(401).json("No user Exist");
     }

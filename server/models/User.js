@@ -5,9 +5,10 @@ const User = new mongoose.Schema({
     email:{type:String, required:true, unique:true},
     password:{type:String, required:true},
     isAdmin:{
-        type: Boolean,
+        type: Boolean,  
         default:false
     },
+    img: {type:String},
 }, {timestamps:true} )
 
 const UserModel = mongoose.model("users",User);

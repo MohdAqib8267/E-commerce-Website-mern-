@@ -11,7 +11,7 @@ router.post("/",verifyToken,async(req,res)=>{
     const newCart = new CartModel(req.body);
     try {
         const saveCart = await newCart.save();
-        res.status(200).send(saveCart);
+        res.status(200).json(saveCart);
     } catch (error) {
         res.status(500).json(error);
     }
@@ -59,4 +59,5 @@ router.get("/",verifyTokenAndAdmin,async(req,res)=>{
         res.status(500).json(error);
     }
 })
+
 module.exports=router;
